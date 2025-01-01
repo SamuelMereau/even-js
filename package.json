@@ -1,7 +1,7 @@
 {
   "name": "even-js",
   "version": "0.1.0",
-  "description": "Node.js wrapper of the Even Realities G1 API",
+  "description": "Node.js interface of the Even Realities G1 API",
   "repository": {
     "type": "git",
     "url": "https://github.com/SamuelMereau/even-js"
@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "test": "npx mocha",
-    "watch": "npx mocha -w",
+    "watch": "npx tsc -w -p .",
     "build": "npx tsc -p .",
     "build-docs": "npx typedoc --out docs src/index.ts --disableOutputCheck",
     "prepublishOnly": "npm run build && npm run build-docs"
@@ -45,6 +45,7 @@
   "devDependencies": {
     "@types/chai": "^4.2.18",
     "@types/mocha": "^8.2.2",
+    "@types/node": "^22.10.2",
     "chai": "^4.3.4",
     "eslint": "^7.25.0",
     "lint-staged": "^10.5.4",
@@ -54,5 +55,8 @@
     "typedoc": "^0.20.36",
     "typedoc-plugin-markdown": "^3.8.1",
     "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "webbluetooth": "^3.2.1"
   }
 }

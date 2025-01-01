@@ -1,14 +1,8 @@
 import { expect } from 'chai';
-import { makeHello } from '../src';
+import { getBluetoothDevices } from '../lib';
 
-describe('makeHello', () => {
-  it('returns hello world when called without a param', () => {
-    expect(makeHello()).to.equal('Hello world');
-  });
-  it('returns hello world when called with an empty string', () => {
-    expect(makeHello('')).to.equal('Hello world');
-  });
-  it('returns hello bob when given the name bob', () => {
-    expect(makeHello('bob')).to.equal('Hello bob');
+describe('test', () => {
+  it('returns test', () => {
+    console.log(getBluetoothDevices)
   });
 });
