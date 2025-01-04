@@ -10,6 +10,7 @@ export class BleManager {
     private RIGHT_DEVICE: BluetoothDeviceImpl|null = null;
     private SYNC_SEQ: number = 0;
 
+    readonly DEVICE_PREFIX: string = "Even G1_";
     readonly UART_SERVICE_UUID: string = "6e400001-b5a3-f393-e0a9-e50e24dcca9e";
     readonly UART_TX_CHARACTERISTIC_UUID = "6e400002-b5a3-f393-e0a9-e50e24dcca9e"; // Write
     readonly UART_RX_CHARACTERISTIC_UUID = "6e400003-b5a3-f393-e0a9-e50e24dcca9e"  // Read/Notify
@@ -137,7 +138,9 @@ export class BleManager {
                     }, this.SCAN_INTERVAL);
         
                     await bluetooth.requestDevice({
-                        acceptAllDevices: true
+                        filters: [{ namePrefix: this.DEVICE_PREFIX }],
+                        optionalServices: [this.UART_SERVICE_UUID],
+                        acceptAllDevices: false
                     });
 
                     clearTimeout(timeoutResolve);
